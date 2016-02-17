@@ -4,7 +4,7 @@ from oauth2client.tools import argparser
 import json, time, sys
 #import pandas as pd
 
-DEVELOPER_KEY = "AIzaSyASOMJUXtm-mJinXlj3F5s3nj0bdqj0KUc"
+DEVELOPER_KEY = ""
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
@@ -88,36 +88,7 @@ def write_to_file(search_term, videos, channels, playlists):
             stg = u"\n".encode("utf-8")
             f.write(stg)
 
-    # HTML file
-    '''f = open("all_results.html", "w")
-    stg = """
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>YouTube Top Music List</title>
-    </head>
-    <body>
-        <h3>
-    """
-    stg = stg + "\n\nYoutube results for search \'" + options.q + "\' at " + time.strftime("%m/%d/%Y %H:%M:%S") + "\t</h3>"
-    stg = stg + "\n<h4>Videos</h4>\n----------"+ u"<a href=\"http://www.youtube.com/watch?v="
-    stg = stg.encode("utf-8")
-    f.write(stg)
-    f.close()
-    for i in xrange(len(videos)):
-        with open("all_results.html", "a") as f:
-            stg = str(i+1)+".".encode("utf-8")
-            f.write(stg)
-            for line in videos[i]:
-                stg = u" ".join(word for word in line)
-                stg = stg + u"<a href=\"http://www.youtube.com/watch?v=" + videos[i][-1] + u"\" /a>"
-                stg = stg.encode("utf-8")
-                f.write(stg)
-            stg = videos[i]
-            stg = stg + u"\n</body>\n</html>".encode("utf-8")
-            f.write(stg)
-            f.close()
-    '''
+    
 
 if __name__ == "__main__":
     # for command line args
